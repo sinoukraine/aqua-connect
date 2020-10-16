@@ -35,8 +35,8 @@ function getPlusInfo(){
             if(!localStorage.PUSH_DEVICE_TOKEN)
             localStorage.PUSH_DEVICE_TOKEN = uid;
             //localStorage.PUSH_DEVICE_TOKEN = "75ba1639-92ae-0c4c-d423-4fad1e48a49d"
-        localStorage.PUSH_APPID_ID = 'webapp';
-        localStorage.DEVICE_TYPE = "web";
+        localStorage.PUSH_APPID_ID = 'android.app.quiktrak.eu.aqua-connect';
+        localStorage.DEVICE_TYPE = "android.app.quiktrak.eu.aqua-connect";
     }
 }
 
@@ -93,6 +93,7 @@ function setupPush(){
         var push = PushNotification.init({
             "android": {
                 //"senderID": "264121929701"
+                icon: 'notification',
             },
             "browser": {
                 pushServiceURL: 'https://push.api.phonegap.com/v1/push'
@@ -220,7 +221,7 @@ var App = new Framework7({
     //pushState: true,
     allowDuplicateUrls: true,
     sortable: false,
-    modalTitle: 'Boat Fix',
+    modalTitle: 'Aqua Connect',
     precompileTemplates: true,
     template7Pages: true,
     fastClicks: false,
@@ -3355,15 +3356,6 @@ function loadAutomatedReportsPage() {
         MinorToken: userInfo.MinorToken
     };
 
-    /*var aReportList = result.Data;
-    setAReportList(aReportList);*/
-    //console.log(result);
-   /* mainView.router.load({
-        url:'resources/templates/automated.reports.html',
-        context:{
-
-        }
-    });*/
     App.showPreloader();
     $.ajax({
         type: "GET",
@@ -6353,7 +6345,7 @@ function showCustomMessage(params){
 }
 
 function showUserGuide(){
-    var href = 'https://login.boatfix.co/Attached/WebSites/BoatFix/manuals/app-user-guide.pdf';
+    var href = 'https://helper.quiktrak.com.au/manuals/aqua-connect/app-manual.pdf';
     if (typeof navigator !== "undefined" && navigator.app) {
         navigator.app.loadUrl(href, {openExternal: true});
     } else {

@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget 
-  version="1.0.72"
-  android-versionCode="18"
-  ios-CFBundleVersion="18"
-  id="com.boatfix.app"
+  version="1.0.0"
+  android-versionCode="1"
+  ios-CFBundleVersion="1"
+  id="com.aquaconnect.app"
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:android="http://schemas.android.com/apk/res/android" defaultlocale="en-US" >
-    <name>Boat Fix</name>
+    <name>Aqua Connect</name>
     <description>
-        Boat Fix GPS tracker
+        Aqua Connect GPS tracker
     </description>
     <author email="support@sinopacific.co" href="http://sinopacific.co">
         Sinopacific Co Limited
@@ -34,13 +34,23 @@
   	      <application android:usesCleartextTraffic="true" />
   	  </edit-config>
   	</platform>
+  	<platform name="ios">
+        <preference name="WKWebViewOnly" value="true" />
+        <feature name="CDVWKWebViewEngine">
+            <param name="ios-package" value="CDVWKWebViewEngine" />
+        </feature>
+        <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
+        <edit-config target="ITSAppUsesNonExemptEncryption" file="*-Info.plist" mode="merge">
+          <false/>
+        </edit-config>   
+    </platform>
 
   	<preference name="loadUrlTimeoutValue" value="700000" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="Orientation" value="portrait" />
-    <preference name="android-minSdkVersion" value="19" />
+    <preference name="android-minSdkVersion" value="22" />
     <!-- <preference name="android-maxSdkVersion" value="27" /> -->
-    <preference name="android-targetSdkVersion" value="28" />
+    <preference name="android-targetSdkVersion" value="29" />
     <preference name="multiDexEnabled" value="true" /> 
     <preference name="deployment-target" value="10.2" />
     <preference name="StatusBarOverlaysWebView" value="false" />
@@ -49,8 +59,8 @@
     <preference name="phonegap-version" value="cli-9.0.0" />    
 
     <preference name="android-build-tool" value="gradle" />
-    <plugin name="phonegap-plugin-push" source="npm" spec="2.1.2">
-        <variable name="SENDER_ID" value="106187216531" />
+    <plugin name="phonegap-plugin-push" source="npm" spec="2.3.0">
+        <variable name="SENDER_ID" value="1097482483564" />
     </plugin>
     <platform name="android">
       <resource-file src="google-services.json" target="app/google-services.json" />
@@ -70,6 +80,8 @@
     <plugin spec="https://github.com/phonegap/phonegap-mobile-accessibility.git" source="git" />
     <plugin name="cordova-plugin-inappbrowser" source="npm" spec="4.0.0"  />
     <plugin name="cordova-plugin-safariviewcontroller" source="npm" spec="1.6.0"/>
+     <plugin name="cordova-plugin-wkwebview-engine" spec="~1.2.1" />
+    <plugin name="cordova-plugin-wkwebview-file-xhr" spec="~2.1.4"/>
 
     <edit-config target="NSCameraUsageDescription" file="*-Info.plist" mode="merge">
         <string>You can take a photo of your asset using camera and upload it into the app</string>
@@ -95,6 +107,8 @@
         <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
         <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
         <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
+
+        <resource-file src="www/res/icon/android/notification.png" target="app/src/main/res/drawable/notification.png" />
         
         <splash density="port-ldpi" src="www/res/screen/android/drawable-port-ldpi-screen.png" />
         <splash density="port-mdpi" src="www/res/screen/android/drawable-port-mdpi-screen.png" />
